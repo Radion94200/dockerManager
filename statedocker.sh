@@ -26,18 +26,17 @@ choice() {
 
 removeImage() {
     read -p "Wich Docker image want you to remove?(imageid) " value
-    docker rmi $value
+    docker rmi -f $value
 }
 
 removeContainer() {
     read -p "Wich Docker container want you to remove?(containerid) " value
-    docker rm $value
+    docker rm -f $value
 }
 
 buildDocker() {
     read -p "Which name want you give to your docker? " name
     docker build -t $name --build-arg user=`whoami` --build-arg uid=ìd -u` --build-arg gid=`id -g .
-
 }
 
 runDocker() {
